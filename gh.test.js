@@ -48,24 +48,24 @@ describe("Additional Github page tests", () => {
     expect(actual).toContain("Sign in to GitHub · GitHub");
   }, 30000);
 
-test("The h1 header content'", async () => {
-  await page.goto("https://github.com/team");
-  const btnSelector = await page.$(".btn-large-mktg.btn-mktg");
-  await btnSelector.click();
-  await page.waitForSelector('h1');
-  const title = await page.title();
-  expect(title).toContain("Join GitHub · GitHub");
-}, 30000);
+  test("The h1 header content'", async () => {
+    await page.goto("https://github.com/team");
+    const btnSelector = await page.$(".btn-large-mktg.btn-mktg");
+    await btnSelector.click();
+    await page.waitForSelector('h1');
+    const title = await page.title();
+    expect(title).toContain("Join GitHub · GitHub");
+  }, 30000);
 
-test("The Pricing page open test", async () => {
-  await page.goto("https://github.com/team");
-  const pricingBtn = "nav > ul > li:nth-child(4) > a";
-  await page.waitForSelector(pricingBtn);
-  await page.click(pricingBtn);
-  await page.waitForTimeout(5000);
-  const titleSelector = "h1";
-  await page.waitForSelector(titleSelector);
-  const actual = await page.title();
-  expect(actual).toContain("Pricing · Plans for every developer · GitHub");
-}, 30000);
+  test("The Pricing page open test", async () => {
+    await page.goto("https://github.com/team");
+    const pricingBtn = "nav > ul > li:nth-child(4) > a";
+    await page.waitForSelector(pricingBtn);
+    await page.click(pricingBtn);
+    await page.waitForTimeout(5000);
+    const titleSelector = "h1";
+    await page.waitForSelector(titleSelector);
+    const actual = await page.title();
+    expect(actual).toContain("Pricing · Plans for every developer · GitHub");
+  }, 30000);
 });
